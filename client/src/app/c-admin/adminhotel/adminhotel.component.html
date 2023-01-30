@@ -1,0 +1,93 @@
+
+<div id="viewport">
+  <!-- Sidebar -->
+  <div id="sidebar" class=" sidebar">
+    <header>
+      <a href="#">My App</a>
+    </header>
+    <ul class=" list-unstyled ">
+      <li>
+        <a  class="text-decoration-none">
+          <i class="  zmdi zmdi-view-dashboard"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a routerLink="/admin/hotel" class="text-decoration-none">
+          <i class="zmdi zmdi-link"></i> Hotels
+        </a>
+      </li>
+      <li>
+        <a href="#" class="text-decoration-none">
+          <i class="zmdi zmdi-widgets"></i> Overview
+        </a>
+      </li>
+      <li>
+        <a href="#" class="text-decoration-none">
+          <i class="zmdi zmdi-calendar"></i> Events
+        </a>
+      </li>
+      <li>
+        <a href="#" class="text-decoration-none">
+          <i class="zmdi zmdi-info-outline"></i> About
+        </a>
+      </li>
+      <li>
+        <a href="#" class="text-decoration-none">
+          <i class="zmdi zmdi-settings"></i> Services
+        </a>
+      </li>
+      <li>
+        <a href="#" class="text-decoration-none">
+          <i class="zmdi zmdi-comment-more"></i> Contact
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- Content -->
+  <div id="content">
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Address</th>
+        <th scope="col">IS Accept</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of announces">
+        <th scope="row">{{item.id}}</th>
+        <td *ngIf="item.hotel">{{item.hotel.name}}</td>
+        <td *ngIf="item.hotel">{{item.hotel.description}}</td>
+        <td *ngIf="item.hotel">
+          <div *ngIf="item.hotel.address" class="d-flex">
+            <div>{{item.hotel.address.country}}</div>
+            <div>-{{item.hotel.address.city}}</div>
+            <div>-{{item.hotel.address.address}}</div>
+          </div>
+        </td>
+        <td>
+          <select ngModel (ngModelChange)="updateAccepted($event , item.id)"  [ngClass]="item._accept?'text-bg-primary bg-opacity-50':'text-bg-danger'" class="mat-calendar-body-selected form-select form-select-sm" aria-label=".form-select-sm example">
+            <option class="text-dark"  disabled  [value]="item._accept" selected>{{item._accept}}</option>
+            <option  [value]="!item._accept">{{!item._accept}}</option>
+          </select>
+<!--        <select ngModel (ngModelChange)="updateAccepted($event , item.id)" [ngClass]="item._accept?'text-bg-primary bg-opacity-50':'text-bg-danger'"  class="text-dark form-select form-select-sm" aria-label=".form-select-sm example">-->
+<!--          <option  value="{{item._accept}}" selected >{{item._accept}}</option>-->
+<!--          <option  value="{{!item._accept}}">{{!item._accept}}</option>-->
+<!--        </select>-->
+        </td>
+        <td class="d-flex justify-content-around ">
+          <a routerLink="show/{{item.id}}" class=" text-info bi bi-eye-fill"></a>
+          <i routerLink="update/{{item.id}}" class=" text-info bi bi-pencil-square"></i>
+          <i  (click)="delete(item.id)" class=" text-danger bi bi-trash3"></i>
+
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

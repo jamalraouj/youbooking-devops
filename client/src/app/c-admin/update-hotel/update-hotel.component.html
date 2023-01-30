@@ -1,0 +1,48 @@
+<p>update-hotel works!</p>
+<div class="container d-flex justify-content-center align-items-center  bg-dark bg-opacity-10">
+  <div class="col-9 border-2 border-danger bg-danger bg-opacity-10 h-75 d-flex justify-content-center rounded-4 ">
+    <form class="mt-5 col-12" [formGroup]="userGroup" (submit)="updateHotel()" *ngIf="announce.hotel">
+      <div class="d-flex justify-content-around">
+        <label class="col-3">
+          Is Accept:
+          <select  formControlName="_accept" class="form-control form-select col mt-3">
+            <option selected [value]="announce._accept">{{announce._accept}}</option>
+            <option [value]="!announce._accept">{{!announce._accept}}</option>
+          </select>
+        </label>
+        <label >
+          Name:
+          <input   value="{{announce.hotel.name}}" formControlName="name" class="form-control col mt-3" type="text" >
+        </label>
+      </div>
+      <div class="d-flex justify-content-around">
+        <label >
+          Description:
+          <input  value="{{announce.hotel.description}}"  formControlName="description" class="form-control col mt-3" type="text" #textInput>
+        </label>
+
+        <label *ngIf="announce.hotel.address" >
+          Country:
+          <input value="{{announce.hotel.address.country}}" formControlName="country" class="form-control col mt-3" type="text" #emailInput>
+        </label>
+      </div>
+      <div class="d-flex justify-content-around" *ngIf="announce.hotel.address">
+
+        <label>
+          City:
+          <input formControlName="city" class="form-control mt-3" type="text" #passwordInput>
+        </label>
+        <label>
+          Address:
+          <input formControlName="Address" class="form-control mt-3" type="text" >
+        </label>
+      </div>
+
+      <br>
+      <div class=" d-flex justify-content-center ">
+      <button type="submit" class="mb-3 col-4 mt-3 bg-primary opacity-75 border-0 col border-3 rounded-4">Save</button>
+      </div>
+    </form>
+
+  </div>
+</div>

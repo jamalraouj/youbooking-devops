@@ -1,0 +1,46 @@
+<p>login works!</p>
+<!-- <form action="/youbooking/login" method="post">
+    <input type="text" name="email">
+    <input type="password" name="password">
+    <input type="submit">
+</form> -->
+<!--<form [formGroup]="userGroup" (submit)="onSubmit()">-->
+<!--    <label>-->
+<!--      Email:-->
+<!--      <input formControlName="email" type="email" #emailInput>-->
+<!--    </label>-->
+<!--    <br>-->
+<!--    <label>-->
+<!--      Password:-->
+<!--      <input formControlName="password" type="password" #passwordInput>-->
+<!--    </label>-->
+<!--    <br>-->
+<!--    <button type="submit">Login</button>-->
+<!--  </form>-->
+
+
+
+<section class="ftco-section d-flex justify-content-around ">
+  <div class="container d-flex justify-content-center align-items-center  bg-dark bg-opacity-10">
+    <div class="col-9 border-2 border-danger bg-danger bg-opacity-10 h-75 d-flex justify-content-center rounded-4 ">
+      <form class="mt-5" [formGroup]="userGroup" (submit)="onSubmit()" >
+        <label>
+          Email:
+          <input formControlName="email" class="form-control col mt-3" type="email" #emailInput>
+        </label>
+        <br>
+        <label>
+          Password:
+          <input formControlName="password" class="form-control mt-3" type="password" #passwordInput>
+        </label>
+        <br>
+        <button type="submit" class="mt-3 bg-primary bg-opacity-10 border-0 col border-3">Login</button>
+        <p class="text-center mt-5">Not a member? <a data-toggle="tab" routerLink="/signup">Sign Up</a></p>
+      </form>
+
+    </div>
+  </div>
+  <div class="col-3  disabled">
+    <img  class="col-12" src="https://www.bootstrapdash.com/demo/login-template-free-2/assets/images/login.jpg">
+  </div>
+</section>

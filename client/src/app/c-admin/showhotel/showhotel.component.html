@@ -1,0 +1,79 @@
+
+<div id="viewport">
+  <!-- Sidebar -->
+  <div id="sidebar" class=" sidebar">
+    <header>
+      <a href="#">My App</a>
+    </header>
+    <ul class=" list-unstyled ">
+      <li>
+        <a  class="text-decoration-none">
+          <i class="  zmdi zmdi-view-dashboard"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a routerLink="/admin/hotel" class="text-decoration-none">
+          <i class="zmdi zmdi-link"></i> Hotels
+        </a>
+      </li>
+      <li>
+        <a href="#" class="text-decoration-none">
+          <i class="zmdi zmdi-widgets"></i> Overview
+        </a>
+      </li>
+      <li>
+        <a href="#" class="text-decoration-none">
+          <i class="zmdi zmdi-calendar"></i> Events
+        </a>
+      </li>
+      <li>
+        <a href="#" class="text-decoration-none">
+          <i class="zmdi zmdi-info-outline"></i> About
+        </a>
+      </li>
+      <li>
+        <a href="#" class="text-decoration-none">
+          <i class="zmdi zmdi-settings"></i> Services
+        </a>
+      </li>
+      <li>
+        <a href="#" class="text-decoration-none">
+          <i class="zmdi zmdi-comment-more"></i> Contact
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- Content -->
+  <div id="content" class="d-flex" >
+    <div class="p-2 d-flex flex-column col-5"*ngIf="announce.hotel" >
+      <h2 class="ms-3">{{announce.hotel.name}}</h2>
+     <img class="col-9" src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80">
+      <p class="text-wrap" >{{announce.hotel.description}}  the premier online platform for booking hotels, flights, and rental cars. With YouBooking, you can easily search and compare prices for a wide variety of travel options, and book your perfect trip with just a few clicks. Our user-friendly interface and 24/7 customer support make it easy to plan and book your next vacation or business trip. So why wait? Start planning your dream vacation today with YouBooking!</p>
+
+    </div>
+  <div *ngIf="announce.hotel" class="d-flex justify-content-around  col-7 align-items-center" >
+    <div class=" d-flex flex-column justify-content-around h-100  col-5" >
+    <div class="bg-2b3146 text-white rounded-3 h-25 d-flex flex-column pt-3 ps-2" *ngIf="announce.hotel.chamberList">
+      <h2>Number Of All Chambers: </h2>
+      <h3 class="counter-number col-1">{{ chamberSize.get("ALL")}}</h3>
+    </div>
+      <div class="bg-2b3146 text-white rounded-3 h-25 d-flex flex-column pt-3 ps-2" *ngIf="announce.hotel.chamberList">
+        <h2>Number Of All Double Chambers: </h2>
+        <h3 class="counter-number col-1">{{ chamberSize.get("DOUBLE")}}</h3>
+      </div>
+    </div>
+  <div class=" d-flex flex-column justify-content-around h-100  col-5" >
+    <div class="bg-2b3146 text-white rounded-3 h-25 d-flex flex-column pt-3 ps-2" *ngIf="announce.hotel.chamberList">
+      <h2>Number Of All Single Chambers: </h2>
+      <h3 class="counter-number col-1">{{ chamberSize.get("SINGLE")}}</h3>
+    </div>
+    <div class="bg-2b3146 text-white rounded-3 h-25 d-flex flex-column  pt-3 ps-2" *ngIf="announce.hotel.chamberList">
+      <h2>Number Of All  Presidential Chamber: </h2>
+      <p class="counter-number col-1 font-weight-bold ">{{ chamberSize.get("PRESIDENTIAL")}}</p>
+    </div>
+
+  </div>
+
+  </div>
+  </div>
+</div>
